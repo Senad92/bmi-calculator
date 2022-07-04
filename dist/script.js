@@ -1,0 +1,2 @@
+function calculateImc(e){let t,l=document.getElementById("IMCbar"),a=document.getElementById("imcData"),i=e.weight.value/(e.height.value/100*(e.height.value/100));return i<=30?t="Underweight":i>30&&i<=90?t="Normal Weight":i>90&&(t="Level 4 obesity"),l.style.width=i<=30?"30%":i>=50?"100%":100*(i-15)/35+"%",a.innerHTML=`IMC: ${parseFloat(i).toFixed(2)}  ${t}`,!1}
+//# sourceMappingURL=script.js.map

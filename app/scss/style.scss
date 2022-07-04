@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &:before,
+  &:after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  font-family: "Open Sans";
+  color: #333;
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: #fff;
+  font-weight: 500;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/**
+ * temp
+ * 
+ */
+
+.button {
+  color: #fff;
+  background-color: #003896;
+  cursor: pointer;
+  padding: 3%;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.button:hover {
+  background-color: #ddd;
+  color: #fff;
+}
+
+.button:focus {
+  outline: 0;
+  background-color: #0d1728;
+}
+
+.max-550 {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+#imcContainer {
+  width: 100%;
+  border-radius: 5px;
+  height: 40px;
+  background: grey;
+  border-radius: 50px;
+}
+
+#IMCbar {
+  width: 0%;
+  height: 40px;
+  margin-top: -5px;
+  border-right: 5px solid #000;
+  transition: all 2s ease;
+}

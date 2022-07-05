@@ -1,23 +1,45 @@
-function calculateImc(form) {
-  let imcBar = document.getElementById("IMCbar");
-  let imcData = document.getElementById("imcData");
-  let imc =
-    form.weight.value / ((form.height.value / 100) * (form.height.value / 100));
-  let imcText;
-  if (imc <= 30) {
-    imcText = "Underweight";
-  } else if (imc > 30 && imc <= 90) {
-    imcText = "Normal Weight";
-  } else if (imc > 90) {
-    imcText = "Level 4 obesity";
-  }
-  if (imc <= 30) {
-    imcBar.style.width = "30%";
-  } else if (imc >= 50) {
-    imcBar.style.width = "100%";
-  } else {
-    imcBar.style.width = ((imc - 15) * 100) / 35 + "%";
-  }
-  imcData.innerHTML = `IMC: ${parseFloat(imc).toFixed(2)}  ${imcText}`;
-  return false;
+function calculateBmi(form) {
+  	let bmiBar = document.getElementById("BMIbar");
+  	let bmiData = document.getElementById("bmiData");
+  	let bmi = form.weight.value / ((form.height.value / 100) * (form.height.value / 100));
+  	let bmiText;
+
+  	if (bmi <= 30) {
+    	bmiText = "Underweight";
+  	} else if (bmi > 30 && bmi <= 90) {
+    	bmiText = "Normal Weight";
+  	} else if (bmi > 90) {
+    	bmiText = "Overweight";
+  	}
+
+	// Remove all classes from spans regarding Bar style
+
+	let divs = Array.from(document.getElementsByTagName("span"));
+	for (let div of divs) {
+		div.className = "";
+	}
+
+  	if (bmi <= 30) {
+    	bmiBar.style.width = "12%";
+		bmiData.innerHTML = `BMI: ${parseFloat(bmi).toFixed(2)}  ${bmiText}`;
+		bmiDataMain.innerHTML = `${parseFloat(bmi).toFixed(2)}`;
+		document.getElementById("bmiSpan1").classList.toggle("active");
+  	} else if (bmi > 30 && bmi < 90) {
+    	bmiBar.style.width = "45%";
+		bmiData.innerHTML = `BMI: ${parseFloat(bmi).toFixed(2)}  ${bmiText}`;
+		bmiDataMain.innerHTML = `${parseFloat(bmi).toFixed(2)}`;
+		document.getElementById("bmiSpan2").classList.toggle("active");
+  	} else if (bmi > 90 && bmi < 120) {
+    	bmiBar.style.width = "80%";
+		bmiData.innerHTML = `BMI: ${parseFloat(bmi).toFixed(2)}  ${bmiText}`;
+		bmiDataMain.innerHTML = `${parseFloat(bmi).toFixed(2)}`;
+		document.getElementById("bmiSpan3").classList.toggle("active");
+  	} else {
+    	bmiBar.style.width = "100%";
+    	bmiData.innerHTML = `Try again, BMI: ${parseFloat(bmi).toFixed(2)}  ${bmiText}`;
+		// document.getElementById("bmiSpan").classList.remove("active");
+  	}
+  	return false;
 }
+
+	
